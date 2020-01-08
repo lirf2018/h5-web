@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+    <title>支付成功页面</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <base th:href="@{/}">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <style>
+        .clear {
+            clear: both
+        }
+
+        .recharge-div > div {
+            float: left;
+            width: 50%;
+            height: 50px;
+        }
+
+        .recharge-div > div > span {
+            border: 1px solid #E0E0E0;
+            width: 100%;
+            display: block;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .to-pay {
+            width: 100%;
+            font-size: 1.5rem;
+            border: 1px solid grey
+        }
+    </style>
+</head>
+<body>
+<div style="width: 100%;">
+
+    <div>支付成功; 订单号：<span th:text="${orderNo}"></span></div>
+
+</div>
+<script>
+
+</script>
+</body>
+</html>
