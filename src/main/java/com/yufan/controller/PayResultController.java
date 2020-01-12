@@ -22,19 +22,22 @@ public class PayResultController {
 
 
     /**
-     * 支付成功页面 http://127.0.0.1:8080/h5-web/pay/success
+     * 支付成功页面 http://http://lirf-shop.51vip.biz/h5-web/pay/success?orderNo=123465
+     *
      *
      * @return
      */
     @RequestMapping("success")
     public ModelAndView paySuccessPage(HttpServletRequest request, HttpServletResponse response, String orderNo) {
         ModelAndView modelAndView = new ModelAndView();
-
         modelAndView.addObject("orderNo", orderNo);
         modelAndView.setViewName("paySuccessPage");
         return modelAndView;
 
     }
+
+
+
 
     /**
      * 支付失败页面 http://127.0.0.1:8080/h5-web/pay/fail
