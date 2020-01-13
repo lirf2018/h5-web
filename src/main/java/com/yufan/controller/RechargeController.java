@@ -26,7 +26,7 @@ public class RechargeController {
     private Logger LOG = Logger.getLogger(RechargeController.class);
 
     /**
-     * 充值页面 http://http://lirf-shop.51vip.biz/h5-web/recharge/rechargePage
+     * 充值页面 http://lirf-shop.51vip.biz/h5-web/recharge/rechargePage
      *
      * @return
      */
@@ -38,11 +38,12 @@ public class RechargeController {
         return modelAndView;
     }
 
+
     /**
      * 创建订单
      */
     @RequestMapping("createOrder")
-    public void createOrder(HttpServletResponse response, HttpServletRequest request, String payWay, BigDecimal orderPrice) {
+    public void createOrder(HttpServletResponse response, HttpServletRequest request, String payWay, String orderNo) {
         PrintWriter writer;
         try {
             writer = response.getWriter();
@@ -51,14 +52,14 @@ public class RechargeController {
             String secretKey = "dsfsdfsd";
             String sysCode = "h5-web";
             String businessCode = "order_pay";
-            String orderNo = String.valueOf(System.currentTimeMillis());
 
             String timestamp = String.valueOf(System.currentTimeMillis() / 1000);
             JSONObject paramData = new JSONObject();
-            paramData.put("sys_code", sysCode);
+            paramData.put("client_code", sysCode);
             paramData.put("business_code", businessCode);
             paramData.put("order_no", orderNo);
-            paramData.put("pay_way", payWay);
+            paramData.put("pay_way", payWay);//交易方式 1 微信2 支付宝
+            paramData.put("record_type", 4);//事项 1 订单退押金 2 订单退款 3 提现 4 订单支付
             paramData.put("timestamp", timestamp);
 
             String sign = VerifySign.getSign(paramData, secretKey);
@@ -77,7 +78,7 @@ public class RechargeController {
 
     /**
      * 查询订单详情
-     * http://127.0.0.1:8080/h5-web/recharge/orderDetail
+     * http://lirf-shop.51vip.biz/h5-web/recharge/orderDetail?orderNo=123456
      *
      * @param response
      * @param request
@@ -89,7 +90,7 @@ public class RechargeController {
         LOG.info("------查询订单详情-------orderNo: " + orderNo);
 
         ModelAndView modelAndView = new ModelAndView();
-
+        modelAndView.addObject("orderNo", orderNo == null ? "" : orderNo);
 
         modelAndView.setViewName("orderDetail");
         return modelAndView;

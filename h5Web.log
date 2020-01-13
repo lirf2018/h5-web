@@ -1,0 +1,7 @@
+2020-01-13 10:25:08 [http-nio-8081-exec-1] INFO  [com.yufan.controller.RechargeController] - ------查询订单详情-------orderNo: null
+2020-01-13 10:25:13 [http-nio-8081-exec-7] INFO  [com.yufan.controller.RechargeController] - ------查询订单详情-------orderNo: null
+2020-01-13 10:25:22 [http-nio-8081-exec-4] INFO  [com.yufan.controller.RechargeController] - ------查询订单详情-------orderNo: 123456
+2020-01-13 10:32:01 [http-nio-8081-exec-8] INFO  [com.yufan.utils.VerifySign] - ---------json:{"order_no":"20191018193251878529","business_code":"order_pay","pay_way":"2","record_type":4,"client_code":"h5-web","timestamp":"1578882721"}
+2020-01-13 10:32:01 [http-nio-8081-exec-8] INFO  [com.yufan.utils.VerifySign] - ---------secretKey:dsfsdfsd
+2020-01-13 10:32:01 [http-nio-8081-exec-8] INFO  [com.yufan.controller.RechargeController] - ----请求支付参数-----{"order_no":"20191018193251878529","sign":"f3f7e0e276968b1794d11b93b8ee1230","business_code":"order_pay","pay_way":"2","record_type":4,"client_code":"h5-web","timestamp":"1578882721"}
+2020-01-13 10:32:27 [http-nio-8081-exec-7] INFO  [com.yufan.controller.RechargeController] - ------查询订单详情-------orderNo: 20191018193251878529
